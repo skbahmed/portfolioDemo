@@ -2,6 +2,15 @@
 /* ######################### ROOT CSS ######################### */
 /* ################################################## */
 :root{
+    --colorGrade1: #37b182;
+    --colorGrade2: #a79d19;
+    --colorGrade3: #a486db;
+    --colorGrade4: #0084ff;
+    --colorGrade5: #FF69B4;
+    --colorGrade6: #ff0257;
+    --colorGrade7: #14b5ca;
+    --colorGrade8: #FF6347;
+
     --bodyBackground: #f2fafd;
     --headerBackground: #e1edf3;
     --themeSettingsBackground: #dce7ec;
@@ -9,6 +18,7 @@
 
     --textColor: #333;
     --selectionColor: var(--bodyBackground);
+    --highlightedColor: var(--colorGrade1);
 
     --animationRotateStyle: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -36,32 +46,6 @@ html[data-theme='light']{
     --themeSettingsBackground: #dce7ec;
 
     --textColor: #333;
-}
-
-/* ######################### COLOR GRADE CSS VAR ######################### */
-html.color-grade-1{
-    --highlightedColor : #ff0257;
-}
-html.color-grade-2{
-    --highlightedColor : #e9e920;
-}
-html.color-grade-3{
-    --highlightedColor : #a486db;
-}
-html.color-grade-4{
-    --highlightedColor : #0053d8;
-}
-html.color-grade-5{
-    --highlightedColor : #FF69B4;
-}
-html.color-grade-6{
-    --highlightedColor : #37b182;
-}
-html.color-grade-7{
-    --highlightedColor : #14b5ca;
-}
-html.color-grade-8{
-    --highlightedColor : #FF6347;
 }
 
 /* ################################################## */
@@ -94,6 +78,9 @@ html::-webkit-scrollbar, .main::-webkit-scrollbar{
     width: .5rem;
     background: var(--scrollbarBackground);
 }
+html::-webkit-scrollbar, .main:-webkit-scrollbar{
+    width: 1rem;
+}
 html::-webkit-scrollbar-thumb, .main::-webkit-scrollbar-thumb{
     background: var(--highlightedColor);
 }
@@ -114,11 +101,13 @@ a:hover, button:hover{
 li{
     list-style: none;
 }
-.user-name, .user-post{
-    text-transform: capitalize;
-}
+.user-name,
+.user-post,
 .developer-post{
     text-transform: capitalize;
+}
+.user-post{
+    font-weight: 600;
 }
 .user-image{
     width: 20rem;
@@ -285,6 +274,13 @@ header .hamburger button{
 header.active-header .hamburger{
     transform: rotate(180deg);
 }
+header .light-dark-toggler button svg{
+    padding: .5rem;
+}
+html[data-theme="dark"] header .darkmode-toggler,
+html[data-theme="light"] header .lightmode-toggler{
+    display: none;
+}
 header .theme-color{
     display: flex;
     flex-direction: column;
@@ -301,36 +297,46 @@ header .color-plate{
 header .color-plate.active-color-plate{
     height: 30rem;
 }
-header .color-plate .color-changer{
+header .color-plate-toggler i{
+    animation: gearRotation 2s infinite linear;
+}
+@keyframes gearRotation {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+header .color-plate .color-grade-changer{
     width: 2.9rem;
     height: 2.9rem;
     border-radius: 50%;
     border: .2rem solid var(--bodyBackground);
 }
-
 header .color-plate .color-grade-1{
-    background: #ff0257;
+    background: var(--colorGrade1);
 }
 header .color-plate .color-grade-2{
-    background: #e9e920;
+    background: var(--colorGrade2);
 }
 header .color-plate .color-grade-3{
-    background: #a486db;
+    background: var(--colorGrade3);
 }
 header .color-plate .color-grade-4{
-    background: #0053d8;
+    background: var(--colorGrade4);
 }
 header .color-plate .color-grade-5{
-    background: #FF69B4;
+    background: var(--colorGrade5);
 }
 header .color-plate .color-grade-6{
-    background: #37b182;
+    background: var(--colorGrade6);
 }
 header .color-plate .color-grade-7{
-    background: #14b5ca;
+    background: var(--colorGrade7);
 }
 header .color-plate .color-grade-8{
-    background: #FF6347;
+    background: var(--colorGrade8);
 }
 
 /* ################################################## */

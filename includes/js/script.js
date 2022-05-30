@@ -11,13 +11,8 @@ lightModeToggler = document.getElementById('lightmode-toggler'),
 colorPlateToggler = document.getElementById('color-plate-toggler'),
 colorPlate = document.getElementById('color-plate'),
 
-colorGrade1 = document.getElementById('color-grade-1'),
-colorGrade2 = document.getElementById('color-grade-2'),
-colorGrade3 = document.getElementById('color-grade-3'),
-colorGrade4 = document.getElementById('color-grade-4'),
-colorGrade5 = document.getElementById('color-grade-5'),
-colorGrade6 = document.getElementById('color-grade-6'),
-colorGrade7 = document.getElementById('color-grade-7');
+colorGradeThemes = document.querySelectorAll('.color-grade-theme'),
+colorGradeChangers = document.querySelectorAll('.color-grade-changer');
 
 
 
@@ -56,4 +51,18 @@ colorPlateToggler.onclick =()=>{
     colorPlate.classList.toggle('active-color-plate');
 }
 
-// colorful
+// THEME CHANGING
+colorGradeChangers.forEach((colorGradeChanger) =>{
+    colorGradeChanger.onclick =()=>{
+        colorGradeThemes.forEach((colorGradeTheme) => {
+            var themeTitle = colorGradeTheme.getAttribute('title'),
+            themeChangerTitle = colorGradeChanger.getAttribute('title');
+    
+            if(themeTitle == themeChangerTitle){
+                colorGradeTheme.removeAttribute('disabled');
+            }else{
+                colorGradeTheme.setAttribute('disabled', 'true');
+            }
+        })
+    }
+})
