@@ -1,0 +1,375 @@
+/* ################################################## */
+/* ######################### ROOT CSS ######################### */
+/* ################################################## */
+:root{
+    --bodyBackground: #f2fafd;
+    --headerBackground: #e1edf3;
+    --themeSettingsBackground: #dce7ec;
+    --scrollbarBackground: transparent;
+
+    --textColor: #333;
+    --selectionColor: var(--bodyBackground);
+
+    --animationRotateStyle: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --headerWidth: 36rem;
+    --themeSettingsWidth: 4rem;
+
+    --boxShadow4side: 0 0 .5rem 0rem rgba(0,0,0,0.3);
+
+    --borderRadius: .5rem;
+}
+
+/* ######################### DARK MODE CSS VAR ######################### */
+html[data-theme='dark']{
+    --bodyBackground: #2a2b2c;
+    --headerBackground: #1a1d1f;
+    --themeSettingsBackground: #171a1d;
+
+    --textColor: #ddd;
+}
+
+/* ######################### LIGHT MODE CSS VAR ######################### */
+html[data-theme='light']{
+    --bodyBackground: #f2fafd;
+    --headerBackground: #e1edf3;
+    --themeSettingsBackground: #dce7ec;
+
+    --textColor: #333;
+}
+
+/* ######################### COLOR GRADE CSS VAR ######################### */
+html.color-grade-1{
+    --highlightedColor : #ff0257;
+}
+html.color-grade-2{
+    --highlightedColor : #e9e920;
+}
+html.color-grade-3{
+    --highlightedColor : #a486db;
+}
+html.color-grade-4{
+    --highlightedColor : #0053d8;
+}
+html.color-grade-5{
+    --highlightedColor : #FF69B4;
+}
+html.color-grade-6{
+    --highlightedColor : #37b182;
+}
+html.color-grade-7{
+    --highlightedColor : #14b5ca;
+}
+html.color-grade-8{
+    --highlightedColor : #FF6347;
+}
+
+/* ################################################## */
+/* ######################### COMMON CSS ######################### */
+/* ################################################## */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    border: none;
+    outline: none;
+}
+*::selection{
+    background: var(--highlightedColor);
+    color: var(--selectionColor);
+}
+*::-webkit-scrollbar{
+    width: 0;
+}
+html{
+    font-family: 'Nunito', sans-serif;
+    color: var(--textColor);
+    background: var(--bodyBackground);
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar, .main::-webkit-scrollbar{
+    width: .5rem;
+    background: var(--scrollbarBackground);
+}
+html::-webkit-scrollbar-thumb, .main::-webkit-scrollbar-thumb{
+    background: var(--highlightedColor);
+}
+body{
+    font-size: 1.6rem;
+    display: flex;
+    height: 100vh;
+}
+a, button{
+    text-decoration: none;
+    color: var(--textColor);
+    text-transform: capitalize;
+    cursor: pointer;
+}
+a:hover, button:hover{
+    color: var(--highlightedColor);
+}
+li{
+    list-style: none;
+}
+.user-name, .user-post{
+    text-transform: capitalize;
+}
+.developer-post{
+    text-transform: capitalize;
+}
+.user-image{
+    width: 20rem;
+    margin: 1rem auto;
+}
+.btn-hover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--borderRadius);
+    border: .1rem solid transparent;
+    transition: all .2s linear;
+    cursor: pointer;
+    color: var(--textColor);
+}
+.btn-hover:hover{
+    border: .1rem solid var(--highlightedColor);
+    color: var(--highlightedColor);
+    font-weight: 500;
+}
+pre{
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Nunito', sans-serif;
+    color: var(--textColor);
+    font-size: 1.6rem;
+}
+
+/* ################################################## */
+/* ######################### HEADER CSS ######################### */
+/* ################################################## */
+header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: var(--headerWidth);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: var(--headerBackground);
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    text-align: center;
+    box-shadow: 0 0 1.5rem -.7rem rgba(0,0,0,0.53);
+    -webkit-box-shadow: 0 0 1.5rem -.7rem rgba(0,0,0,0.53);
+    -moz-box-shadow: 0 0 1.5rem -.7rem rgba(0,0,0,0.53);
+    transition: all .2s linear;
+}
+header.active-header{
+    left: calc(var(--themeSettingsWidth) - var(--headerWidth));
+}
+header .header-col{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    height: 100%;
+    width: calc(var(--headerWidth) - var(--themeSettingsWidth))
+}
+header .user-details{
+    width: 100%;
+    padding: 0 2rem;
+}
+header .user-name{
+    font-size: 3rem;
+    letter-spacing: .5rem;
+    font-variant: small-caps;
+}
+header .user-post{
+    color: var(--highlightedColor);
+}
+header .user-image{
+    height: 18rem;
+    width: 18rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.2rem solid var(--highlightedColor);
+    border-bottom: 1.2rem solid var(--textColor);
+    border-top: 1.2rem solid var(--textColor);
+    animation: rotateBorder 4s infinite var(--animationRotateStyle);
+    box-shadow: var(--boxShadow4side);
+    -webkit-box-shadow: var(--boxShadow4side);
+    -moz-box-shadow: var(--boxShadow4side);
+}
+@keyframes rotateBorder{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(720deg);
+    }
+}
+.user-image .image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: alterRotate 4s infinite var(--animationRotateStyle);
+}
+@keyframes alterRotate{
+    from{
+        transform: rotate(720deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+}
+header .navbar{
+    width: 100%;
+    padding: 0 2rem;
+}
+header .navbar ul{
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+header .nav-item a{
+    padding: 1rem 3rem;
+    background: var(--bodyBackground);
+    margin: .5rem 0;
+}
+header .developer-info{
+    width: 100%;
+    padding: 0 2rem;
+}
+header .user-connect{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
+}
+header .connect-item{
+    font-size: 1.8rem;
+    width: 3rem;
+    height: 3rem;
+    margin: .5rem;
+    background: var(--bodyBackground);
+}
+header .theme-settings{
+    height: 100%;
+    width: var(--themeSettingsWidth);
+    background: var(--themeSettingsBackground);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-top: .5rem;
+}
+header .theme-settings button{
+    background: transparent;
+    font-size: 1.8rem;
+    width: 3rem;
+    height: 3rem;
+    margin: .5rem 0;
+}
+header .hamburger button{
+    font-size: 3rem;
+}
+header.active-header .hamburger{
+    transform: rotate(180deg);
+}
+header .theme-color{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header .color-plate{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 0;
+    overflow-x: hidden;
+    transition: all .2s linear;
+}
+header .color-plate.active-color-plate{
+    height: 30rem;
+}
+header .color-plate .color-changer{
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    border: .2rem solid var(--bodyBackground);
+}
+
+header .color-plate .color-grade-1{
+    background: #ff0257;
+}
+header .color-plate .color-grade-2{
+    background: #e9e920;
+}
+header .color-plate .color-grade-3{
+    background: #a486db;
+}
+header .color-plate .color-grade-4{
+    background: #0053d8;
+}
+header .color-plate .color-grade-5{
+    background: #FF69B4;
+}
+header .color-plate .color-grade-6{
+    background: #37b182;
+}
+header .color-plate .color-grade-7{
+    background: #14b5ca;
+}
+header .color-plate .color-grade-8{
+    background: #FF6347;
+}
+
+/* ################################################## */
+/* ######################### MAIN SECTION CSS ######################### */
+/* ################################################## */
+.main{
+    padding: 2rem 3rem;
+    width: calc(100% - var(--headerWidth));
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: var(--headerWidth);
+    transition: all .2s linear;
+    text-align: justify;
+}
+.main.active-header{
+    left: var(--themeSettingsWidth);
+    width: calc(100% - var(--themeSettingsWidth));
+}
+.main .scroll-top{
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+}
+.main .scroll-top-icon{
+    box-shadow: var(--boxShadow4side);
+    background: var(--headerBackground);
+    font-size: 2.3rem;
+    transition: all .2s linear;
+    height: 5rem;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.main .scroll-top-icon.active-scroll{
+    opacity: 1;
+    width: 4rem;
+    pointer-events: all;
+}
