@@ -17,6 +17,7 @@
     --scrollbarBackground: transparent;
 
     --textColor: #333;
+    --textColor2: #ddd;
     --selectionColor: var(--bodyBackground);
     --highlightedColor: var(--colorGrade1);
 
@@ -37,6 +38,7 @@ html[data-theme='dark']{
     --themeSettingsBackground: #171a1d;
 
     --textColor: #ddd;
+    --textColor2: #333;
 }
 
 /* ######################### LIGHT MODE CSS VAR ######################### */
@@ -46,6 +48,7 @@ html[data-theme='light']{
     --themeSettingsBackground: #dce7ec;
 
     --textColor: #333;
+    --textColor2: #ddd;
 }
 
 /* ################################################## */
@@ -94,6 +97,7 @@ a, button{
     color: var(--textColor);
     text-transform: capitalize;
     cursor: pointer;
+    letter-spacing: .15rem;
 }
 a:hover, button:hover{
     color: var(--highlightedColor);
@@ -106,12 +110,20 @@ li{
 .developer-post{
     text-transform: capitalize;
 }
+.user-name{
+    letter-spacing: .5rem;
+    font-variant: small-caps;
+}
 .user-post{
     font-weight: 600;
 }
 .user-image{
     width: 20rem;
     margin: 1rem auto;
+}
+.user-image .image{
+    width: 100%;
+    height: 100%;
 }
 .btn-hover{
     display: flex;
@@ -137,6 +149,18 @@ pre{
     font-family: 'Nunito', sans-serif;
     color: var(--textColor);
     font-size: 1.6rem;
+}
+.user-connect{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.connect-item{
+    font-size: 1.8rem;
+    width: 3rem;
+    height: 3rem;
+    margin: .5rem;
 }
 
 /* ################################################## */
@@ -179,8 +203,6 @@ header .user-details{
 }
 header .user-name{
     font-size: 3rem;
-    letter-spacing: .5rem;
-    font-variant: small-caps;
 }
 header .user-post{
     color: var(--highlightedColor);
@@ -206,9 +228,7 @@ header .user-image{
         transform: rotate(720deg);
     }
 }
-.user-image .image{
-    width: 100%;
-    height: 100%;
+header .user-image .image{
     border-radius: 50%;
     animation: alterRotate 4s infinite var(--animationRotateStyle);
 }
@@ -231,7 +251,7 @@ header .navbar ul{
     justify-content: space-between;
 }
 header .nav-item a{
-    padding: 1rem 3rem;
+    padding: 1rem 0;
     background: var(--bodyBackground);
     margin: .5rem 0;
 }
@@ -239,17 +259,7 @@ header .developer-info{
     width: 100%;
     padding: 0 2rem;
 }
-header .user-connect{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 1rem 0;
-}
 header .connect-item{
-    font-size: 1.8rem;
-    width: 3rem;
-    height: 3rem;
-    margin: .5rem;
     background: var(--bodyBackground);
 }
 header .theme-settings{
@@ -353,11 +363,63 @@ header .color-plate .color-grade-8{
     left: var(--headerWidth);
     transition: all .2s linear;
     text-align: justify;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 .main.active-header{
     left: var(--themeSettingsWidth);
     width: calc(100% - var(--themeSettingsWidth));
 }
+.main .profile{
+    width: 30rem;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+.main .welcome-note{
+    text-transform: capitalize;
+}
+.main .user-name{
+    color: var(--highlightedColor);
+    font-size: 4rem;
+}
+.main .user-post{
+    text-align: center;
+}
+.main .hire-user{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.main .hire-user a{
+    font-weight: 600;
+    background: var(--headerBackground);
+    width: 48%;
+    padding: .7rem 0;
+}
+.main .user-image{
+    width: 100%;
+    border-radius: 20rem 20rem 2rem 2rem;
+    background-size: cover;
+}
+.main .user-image img{
+    border: 1rem double var(--highlightedColor);
+    border-radius: 20rem 20rem 2rem 2rem;
+    box-shadow: 0 0 1rem 0 var(--highlightedColor);
+    -webkit-box-shadow: 0 0 1rem 0 var(--highlightedColor);
+    -moz-box-shadow: 0 0 1rem 0 var(--highlightedColor);
+}
+.main .user-connect{
+    display: flex;
+    justify-content: center;
+}
+.main .connect-item{
+    background: var(--headerBackground);
+}
+
+
 .main .scroll-top{
     position: fixed;
     bottom: 2rem;
