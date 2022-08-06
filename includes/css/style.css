@@ -72,7 +72,7 @@ html[data-theme='light']{
 html{
     font-family: 'Nunito', sans-serif;
     color: var(--textColor);
-    background: var(--bodyBackground);
+    background: var(--headerBackground);
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -91,6 +91,7 @@ body{
     font-size: 1.6rem;
     display: flex;
     height: 100vh;
+    background: var(--bodyBackground);
 }
 a, button{
     text-decoration: none;
@@ -128,7 +129,7 @@ li{
 .btn-hover{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     border-radius: var(--borderRadius);
     border: .1rem solid transparent;
     transition: all .2s linear;
@@ -138,7 +139,7 @@ li{
 .btn-hover:hover{
     border: .1rem solid var(--highlightedColor);
     color: var(--highlightedColor);
-    font-weight: 500;
+    box-shadow: 0 0 .5rem 0 var(--highlightedColor);
 }
 pre{
     white-space: pre-wrap;
@@ -251,10 +252,36 @@ header .navbar ul{
     justify-content: space-between;
 }
 header .nav-item a{
-    padding: 1rem 0;
+    padding: 1rem 3rem;
     background: var(--bodyBackground);
     margin: .5rem 0;
+    justify-content: space-between;
 }
+header .nav-item .active-nav-item{
+    background: var(--highlightedColor);
+    
+}
+header .nav-item .active-nav-item:hover{
+    color: var(--textColor);
+}
+header.active-header .navbar{
+    width: auto;
+    font-size: 1.4rem;
+    position: absolute;
+    right: -1.4rem;
+}
+header.active-header .nav-item a{
+    padding: 0;
+    width: 2.8rem;
+    height: 2.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header.active-header .nav-item a span{
+    display: none;
+}
+
 header .developer-info{
     width: 100%;
     padding: 0 2rem;
@@ -303,6 +330,8 @@ header .color-plate{
     height: 0;
     overflow-x: hidden;
     transition: all .2s linear;
+    z-index: 9999;
+    background: var(--themeSettingsBackground);
 }
 header .color-plate.active-color-plate{
     height: 30rem;
@@ -384,9 +413,31 @@ header .color-plate .color-grade-8{
 .main .user-name{
     color: var(--highlightedColor);
     font-size: 4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .5rem solid var(--highlightedColor);
+    animation: typeWriterEffect 3s infinite cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes typeWriterEffect {
+    0%, 10%, 100%{
+        width: 0;
+    }
+    60%, 90%{
+        width: 100%;
+    }
 }
 .main .user-post{
-    text-align: center;
+    text-align: right;
+}
+.main .user-connect{
+    display: flex;
+    justify-content: space-between;
+}
+.main .connect-item{
+    background: var(--headerBackground);
+    width: 5rem;
+    height: 4rem;
+    margin: 0;
 }
 .main .hire-user{
     display: flex;
@@ -410,13 +461,6 @@ header .color-plate .color-grade-8{
     box-shadow: 0 0 1rem 0 var(--highlightedColor);
     -webkit-box-shadow: 0 0 1rem 0 var(--highlightedColor);
     -moz-box-shadow: 0 0 1rem 0 var(--highlightedColor);
-}
-.main .user-connect{
-    display: flex;
-    justify-content: center;
-}
-.main .connect-item{
-    background: var(--headerBackground);
 }
 
 
