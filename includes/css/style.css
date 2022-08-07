@@ -164,6 +164,56 @@ pre{
     margin: .5rem;
 }
 
+section{
+    padding: 5rem;
+    width: 100%;
+    display: flex;
+}
+.section-odd{
+    flex-direction: row;
+}
+.section-even{
+    flex-direction: row-reverse;
+}
+.section-col{
+    width: 100%;
+}
+.section-header{
+    width: 30%;
+}
+.section-title{
+    text-transform: uppercase;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-title::before{
+    content: "";
+    display: block;
+    width: .2rem;
+    height: 40%;
+    background: var(--highlightedColor);
+    right: 50%;
+    top: 0;
+    position: absolute;
+}
+.section-title::after{
+    content: "";
+    display: block;
+    width: .2rem;
+    height: 40%;
+    background: var(--highlightedColor);
+    right: 50%;
+    bottom: 0;
+    position: absolute;
+}
+.section-row{
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
 /* ################################################## */
 /* ######################### HEADER CSS ######################### */
 /* ################################################## */
@@ -171,11 +221,10 @@ header{
     position:fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
-    height: 100%;
+    z-index: 1000000;
+    height: 100vh;
     width: var(--headerWidth);
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
     background: var(--headerBackground);
     display: flex;
     flex-flow: row;
@@ -190,17 +239,12 @@ header.active-header{
     left: calc(var(--themeSettingsWidth) - var(--headerWidth));
 }
 header .header-col{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    height: 100%;
-    width: calc(var(--headerWidth) - var(--themeSettingsWidth))
+    padding: 2rem;
+    width: calc(var(--headerWidth) - var(--themeSettingsWidth));
+    overflow-y: scroll;
 }
 header .user-details{
     width: 100%;
-    padding: 0 2rem;
 }
 header .user-name{
     font-size: 3rem;
@@ -243,7 +287,6 @@ header .user-image .image{
 }
 header .navbar{
     width: 100%;
-    padding: 0 2rem;
 }
 header .navbar ul{
     height: 100%;
@@ -259,16 +302,19 @@ header .nav-item a{
 }
 header .nav-item .active-nav-item{
     background: var(--highlightedColor);
-    
 }
 header .nav-item .active-nav-item:hover{
     color: var(--textColor);
 }
 header.active-header .navbar{
-    width: auto;
+    width: var(--themeSettingsWidth);
     font-size: 1.4rem;
     position: absolute;
-    right: -1.4rem;
+    right: 0;
+    overflow-y: scroll;
+}
+header.active-header .nav-item{
+    margin: auto;
 }
 header.active-header .nav-item a{
     padding: 0;
@@ -284,7 +330,6 @@ header.active-header .nav-item a span{
 
 header .developer-info{
     width: 100%;
-    padding: 0 2rem;
 }
 header .connect-item{
     background: var(--bodyBackground);
@@ -384,10 +429,10 @@ header .color-plate .color-grade-8{
 .main{
     padding: 2rem 3rem;
     width: calc(100% - var(--headerWidth));
-    height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
     position: fixed;
+    height: 100%;
     top: 0;
     left: var(--headerWidth);
     transition: all .2s linear;
@@ -402,7 +447,6 @@ header .color-plate .color-grade-8{
 }
 .main .profile{
     width: 30rem;
-    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
