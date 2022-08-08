@@ -77,15 +77,13 @@ html{
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
-html::-webkit-scrollbar, .main::-webkit-scrollbar{
-    width: .5rem;
-    background: var(--scrollbarBackground);
+.scrollbar-track{
+    width: .5rem !important;
+    background: var(--scrollbarBackground) !important;
 }
-html::-webkit-scrollbar, .main:-webkit-scrollbar{
-    width: 1rem;
-}
-html::-webkit-scrollbar-thumb, .main::-webkit-scrollbar-thumb{
-    background: var(--highlightedColor);
+.scrollbar-thumb{
+    background: var(--highlightedColor) !important;
+    border-radius: 0 !important;
 }
 body{
     font-size: 1.6rem;
@@ -437,9 +435,6 @@ header .color-plate .color-grade-8{
     left: var(--headerWidth);
     transition: all .2s linear;
     text-align: justify;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
 }
 .main.active-header{
     left: var(--themeSettingsWidth);
@@ -450,6 +445,7 @@ header .color-plate .color-grade-8{
     display: flex;
     flex-flow: column;
     justify-content: space-around;
+    margin: auto;
 }
 .main .welcome-note{
     text-transform: capitalize;
@@ -508,12 +504,27 @@ header .color-plate .color-grade-8{
 }
 
 
-.main .scroll-top{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .scroll-top{
     position: fixed;
     bottom: 2rem;
     right: 3rem;
 }
-.main .scroll-top-icon{
+.scroll-top-icon{
     box-shadow: var(--boxShadow4side);
     background: var(--headerBackground);
     font-size: 2.3rem;
@@ -524,8 +535,8 @@ header .color-plate .color-grade-8{
     overflow: hidden;
     pointer-events: none;
 }
-.main .scroll-top-icon.active-scroll{
+.scroll-top-icon{
     opacity: 1;
     width: 4rem;
     pointer-events: all;
-}
+} */

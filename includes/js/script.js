@@ -3,7 +3,7 @@ var headerSection = document.getElementById('header'),
 mainSection = document.getElementById('main'),
 
 navToggler = document.getElementById('nav-toggler'),
-scrollToggler = document.getElementById('scroll-toggler'),
+// scrollToggler = document.getElementById('scroll-toggler'),
 
 darkModeToggler = document.getElementById('darkmode-toggler'),
 lightModeToggler = document.getElementById('lightmode-toggler'),
@@ -25,18 +25,18 @@ navToggler.onclick =()=>{
 }
 
 // SCROLL TO TOP BY CLICKING
-scrollToggler.onclick =()=>{
-    mainSection.scrollTop=0;
-}
+// scrollToggler.onclick =()=>{
+//     mainSection.scrollTop=0;
+// }
 
 // HIDE OR UNHIDE SCROLL TOGGLER WHEN SCROLL TO BOTTOM 30PX OR GREATER
-mainSection.onscroll =()=>{
-    if(mainSection.scrollTop > 30){
-        scrollToggler.classList.add('active-scroll');
-    }else{
-        scrollToggler.classList.remove('active-scroll');
-    }
-}
+// mainSection.onscroll =()=>{
+//     if(mainSection.scrollTop > 30){
+//         scrollToggler.classList.add('active-scroll');
+//     }else{
+//         scrollToggler.classList.remove('active-scroll');
+//     }
+// }
 
 // DARK OR LIGHT MODE BY CLICKING
 darkModeToggler.onclick =()=>{
